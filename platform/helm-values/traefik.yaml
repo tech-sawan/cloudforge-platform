@@ -1,0 +1,18 @@
+# Local Kind profile. Expose HTTP through kubectl port-forward (see platform/README.md).
+providers:
+  kubernetesGateway:
+    enabled: true
+  kubernetesIngress:
+    enabled: true
+ports:
+  web:
+    port: 8000
+    exposedPort: 80
+    protocol: TCP
+  websecure:
+    port: 8443
+    exposedPort: 443
+    protocol: TCP
+service:
+  spec:
+   type: ClusterIP

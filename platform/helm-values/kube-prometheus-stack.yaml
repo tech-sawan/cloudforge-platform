@@ -1,0 +1,18 @@
+grafana:
+  enabled: true
+  adminUser: admin
+  # Local Kind demo only. Change this for any shared environment.
+  adminPassword: change-me-local-only
+  persistence:
+    enabled: false
+
+prometheus:
+  prometheusSpec:
+    retention: 2d
+    storageSpec: {}
+
+alertmanager:
+  alertmanagerSpec:
+    storage: {}
+
+# The chart includes kube-state-metrics and node-exporter by default.

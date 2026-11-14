@@ -1,0 +1,7 @@
+configs:
+  params:
+    # Keep the API server behind port-forward / ingress TLS in this local demo.
+    server.insecure: false
+server:
+  service:
+    type: ClusterIP

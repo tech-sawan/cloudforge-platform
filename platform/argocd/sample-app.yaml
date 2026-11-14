@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-nginx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    chart: ingress-nginx
+    targetRevision: REPLACE_WITH_REVIEWED_CHART_VERSION
+    helm:
+      releaseName: sample-nginx
+      valueFiles: []
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sample-nginx
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
